@@ -1,2 +1,2 @@
 # practice2026
-練習
+* day001: Ternary Operator
