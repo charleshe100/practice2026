@@ -7,67 +7,49 @@
 </head>
 <body>
     <h1>values</h1>
-    <h2>成績判斷</h2>
-    <h3>判斷成績及格學生</h3>
+    <h2>閏年判斷</h2>
+    <h3>給定一個西元年份，判斷是否為閏年</h3>
+    1. 地球對太陽的公轉一年的真實時間大約是365天5小時48分46秒，因此以365天定為一年 的狀況下，每年會多出近六小時的時間，所以每隔四年設置一個閏年來消除這多出來的一天。<br>
+    2. 公元年分除以4不可整除，為平年。<br>
+    3. 公元年分除以4可整除但除以100不可整除，為閏年。<br>
+    4. 公元年分除以100可整除但除以400不可整除，為平年。<br><br>
     <?php 
-    $score=99;
-    echo "分數：$score 分<br>";
-    echo '判斷為：';
-    if(100>=$score && $score>=60){
-        echo "及格";
-    }elseif(60>$score && $score>=0){
-        echo "不及格";
-    }else{
-        echo '分數輸入錯誤，無法判斷';
-    };
-    ?>
-
-    <h3>成績等級</h3>
-    <?php 
-    if (0<=$score && $score<60) {
-        $level='E';
-        echo '等級：E';
-    }elseif(60<=$score && $score<70){
-        $level='D';
-        echo '等級：D';
-    }elseif(70<=$score && $score<80){
-        $level='C';
-        echo '等級：C';
-    }elseif(80<=$score && $score<90){
-        $level='B';
-        echo '等級：B';
-    }elseif(90<=$score && $score<=100){
-        $level='A';
-        echo '等級：A';
-    }else{
-        $level='成績分數輸入錯誤';
-        echo '成績分數輸入錯誤';
-    };
+    $year=2026;
+    echo "西元：{$year} 年<br>";    
     
-    ?>
+    if($year%4==0 && $year%100!=0){
+        echo "判斷為：閏年";
+    }elseif($year%400==0){
+        echo "判斷為：閏年";
+    }else{
+        echo "判斷為：平年";
+    }     
+    
+    
+    // 2. 公元年分除以4不可整除，為平年。
+    // if($year%4==0){
+    //     echo "判斷為：閏年";
+    // }else{
+    //     echo "判斷為：平年";
+    // }
+    // echo "<br>";
 
-    <h3>依據學生成績等級給予評價</h3>
-    <?php 
-    switch ($level) {
-        case 'E':
-            echo '評價：需加努力';
-            break;
-        case 'D':
-            echo '評價：進度落後';
-            break;
-        case 'C':
-            echo '評價：需再加強';
-            break;
-        case 'B':
-            echo '評價：表現良好';
-            break;
-        case 'A':
-            echo '評價：學習優異';
-            break;     
-        case '成績分數輸入錯誤':
-            echo '請輸入正確分數';
-            break;
-    }
+    // 3. 公元年分除以4可整除但除以100不可整除，為閏年。
+    // if($year%4==0 && $year%100!=0){
+    //     echo "判斷為：閏年";
+    // }else{
+    //     echo "判斷為：平年";
+    // }
+    // echo "<br>";
+
+    // 4. 公元年分除以100可整除但除以400不可整除，為平年。
+    // →  可被400整除的是閏年。
+    // if($year%100==0 && $year%400!=0){
+    //     echo "判斷為：平年";
+    // }else{
+    //     echo "判斷為：閏年";
+    // }
+
     ?>
 </body>
 </html>
