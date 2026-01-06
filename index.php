@@ -4,70 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .table1{
+            border: 3px solid #ccc;
+        }
+        .tablewrap{
+            display: inline-block;
+            padding: 5px;
+            border: 3px solid #aaa;
+        }
+        .table2{
+            border-collapse: collapse;
+        }
+        tr, td {
+            margin-right: auto;   
+            padding:10px; 
+            text-align: center;      
+        }
+        .td2{            
+            border: 1px solid #ccc;
+        }
+        .bg{
+            background: #ddd;
+        }
+    </style>
 </head>
 <body>
     <h1>PHP程式流程控制</h1>
-    <h2>使用for迴圈來產生以下的數列</h2>
-    1,3,5,7,9……n<br>
-    10,20,30,40,50,60……n<br>
-    3,5,7,11,13,17……97
-    
-    <h3>1,3,5,7,9……n</h3>
-    <?php 
-    for ($oddnumber=1; $oddnumber < 101; $oddnumber++) { 
-        echo "{$oddnumber}, ";
-        if ($oddnumber%10==0) {
-            echo "<br>";
+    <h2>九九乘法表</h2>
+    <h3>以表格排列的九九乘法表</h3>
+    <table class="table1">             
+    <?php     
+    for ($i=1; $i <10 ; $i++) { 
+        echo "<tr class='tr1'>";        
+        for ($j=1; $j <10 ; $j++) { 
+            echo "<td class='td1'>";
+            $k=$i*$j;
+            echo $i.'×'.$j.'='.$k;
+            echo "</td>";
         }
+        echo "</tr>";
     }
     ?>
+    </table>
 
-    <h3>10,20,30,40,50,60……n</h3>
+    <h3>以交叉計算結果呈現的九九乘法表</h3>
+    <div class="tablewrap">
+    <table class="table2">             
     <?php 
-    for ($tennumber=10; $tennumber < 101; $tennumber+=10) { 
-        echo "{$tennumber}, ";        
-    }
+    // 第一列
+    echo "<tr>";
+    // 左上第一格
+    echo "<td class='td2 bg'>";
+    echo "</td>";
     
-    ?>
-
-    <h3>3,5,7,11,13,17……97</h3>
-    質數<br>
-    1. 必須是 > 1<br>
-    2. 只有兩個因數：1 和它自己。<br><br>
-    <?php 
-    // for ($primenumbers=2; $primenumbers < 101; $primenumbers++) { 
-    //     if ($primenumbers==2 || $primenumbers==3 || $primenumbers==5 || $primenumbers==7 || 
-    //         ($primenumbers%2!=0 && $primenumbers%3!=0 && $primenumbers%5!=0 && $primenumbers%7!=0)) {
-    //         echo "{$primenumbers}, ";
-    //     }
-    // }
+    for ($m=1; $m <10 ; $m++) {
+        echo "<td class='td2 bg'>{$m}</td>";
+    } 
+    echo "</tr>";  
     
-    $count = 0;
-    for ($num = 2; $num <= 200; $num++) {
-
-        $isPrime = true;
-
-        for ($i = 2; $i <= sqrt($num); $i++) {
-        if ($num % $i == 0) {
-            $isPrime = false;
-            break;
+    for ($m=1; $m <10 ; $m++) {
+        echo "<tr class='tr2'>"; 
+        // 第一欄
+        echo "<td class='td2 bg'>{$m}</td>";
+        // 九九乘法
+        for ($n=1; $n <10 ; $n++) { 
+            $p=$m*$n;
+            echo "<td class='td2'>{$p}</td>";
         }
-        }
-
-        if ($isPrime) {
-        echo "{$num}, ";
-        $count++;
-
-        if ($count % 10 == 0) {
-            echo "<br>";
-        }
-        }
+        echo "</tr>";      
     }
-
-
-
-
     ?>
-
+    </table>
+    </div>
+    <br>
+    <br>
+    <br>
 </body>
 </html>
