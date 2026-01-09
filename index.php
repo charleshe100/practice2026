@@ -5,114 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .font{
-            font-family: monospace;
-        }
+        table{
+            border-collapse: collapse;
+        }        
     </style>
 </head>
 <body>
-    <h1>PHP程式流程控制</h1>
-    <h2>以 * 符號為基礎在網頁上排列出下列圖形</h2>    
-    <ul>
-        <li>直角三角形</li>
-        <li>倒直角三角形</li>
-        <li>正三角形</li>
-        <li>菱形</li>   
-        <li>矩形</li>   
-        <li>內含對角線的矩形</li>   
-    </ul> 
-    <div class="font">
-    <h3>直角三角形</h3>
+    <h1>PHP陣列</h1>
+    <h2>建立一個學生成績陣列</h2>    
+    
     <?php
-    for ($i=1; $i <6 ; $i++) { 
-        for ($j=1; $j <=$i ; $j++) { 
-            echo '*';
-        }
-        echo "<br>";
-    }
+    $subject=['國文','英文','數學','地理','歷史'];
+    $judy=[95,64,70,90,84];
+    $amo=[88,78,54,81,71];
+    $john=[45,60,68,70,62];
+    $peter=[59,32,77,54,42];
+    $hebe=[71,62,80,62,64];
     ?>
+    
+    <table border="1" cellpadding="5">
+    <tr>
+        <th>學生</th>
+        <?php
+        foreach ($subject as $sub) {
+            echo "<th>{$sub}</th>";
+        }
+        ?>
+    </tr>
+    <tr>
+        <td>Judy</td>
+        <?php foreach ($judy as $score) echo "<td>{$score}</td>"; ?>
+    </tr>
+    <tr>
+        <td>Amo</td>
+        <?php foreach ($amo as $score) echo "<td>{$score}</td>"; ?>
+    </tr>
+    <tr>
+        <td>John</td>
+        <?php foreach ($john as $score) echo "<td>{$score}</td>"; ?>
+    </tr>
+    <tr>
+        <td>Peter</td>
+        <?php foreach ($peter as $score) echo "<td>{$score}</td>"; ?>
+    </tr>
+    <tr>
+        <td>Hebe</td>
+        <?php foreach ($hebe as $score) echo "<td>{$score}</td>"; ?>
+    </tr>
+    </table>    
 
-    <h3>倒直角三角形</h3>
-    <?php
-    for ($i=1; $i <6 ; $i++) { 
-        for ($j=5; $j >=$i ; $j--) { 
-            echo '*';
-        }
-        echo "<br>";
-    }
-    ?>
-
-    <h3>正三角形</h3>
-    
-    <?php
-    for ($i=1; $i <=5 ; $i++) { 
-        for ($k=1; $k <=(5-$i) ; $k++) { 
-            echo "&nbsp;";
-        }
-        
-        for ($j=1; $j <=(2*$i-1) ; $j++) { 
-            echo '*';
-        }
-        echo "<br>";
-    }
-    ?>    
-    
-    <h3>菱形</h3>
-    
-    <?php
-    $temp=0;
-    for($i=1;$i<=9;$i++){
- 
-    if($i>5){
-        $temp=$temp-1;
-    }else{
-        $temp=$i;
-    }
-    
-    for($j=1;$j<=(4+$temp);$j++){
-        if($j<=(5-$temp)){
-        echo "&nbsp;";
-        }else{
-        echo "*";
-        }
-    }
-    echo "<br>";
-    }
-    ?>    
-
-    <h3>矩形</h3>
-    
-    <?php
-    for($i=1 ; $i<=9 ; $i++){
-    for( $j=1 ; $j<=9 ; $j++ ){        
-        if($i==1 || $i==9){        
-        echo "*";        
-        }else if($j==1 || $j==9){          
-        echo "*";        
-        }else{        
-        echo "&nbsp;";        
-        }        
-    }    
-    echo "<br>";
-    }
-    ?>    
-    
-    <h3>內含對角線的矩形</h3>
-    
-    <?php
-    for($i=1 ; $i<=9 ; $i++){
-    for( $j=1 ; $j<=9 ; $j++ ){    
-        if($i==1 || $i==9){        
-        echo "*";        
-        }else if($j==1 || $j==9 || $j==$i || $j==(9-$i+1)){            
-        echo "*";        
-        }else{        
-        echo "&nbsp;";        
-        }
-    }    
-    echo "<br>";
-    }
-    ?>
-    </div>
 </body>
 </html>
