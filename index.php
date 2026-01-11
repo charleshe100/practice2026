@@ -2,50 +2,44 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>九九乘法表（陣列產生）</title>
-    <style>
-        table {
-            border-collapse: collapse;
-        }
-        td {
-            border: 1px solid #ccc;
-            padding: 8px;
-            text-align: center;
-        }
-        .tablewrap{
-            display: inline-block;
-            padding: 5px;
-            border: 3px solid #aaa;
-        }
-    </style>
+    <title>威力彩電腦選號沒有重覆號碼(利用while迴圈)</title>    
 </head>
 <body>
 
-<h1>PHP 程式流程控制</h1>
-<h2>利用陣列產生九九乘法表</h2>
+<h1>陣列</h1>
+<h2>威力彩電腦選號沒有重覆號碼(利用while迴圈)</h2>
+<ul>
+    <li>使用亂數函式rand($a,$b)來產生號碼</li>
+    <li>將產生的號碼順序存入陣列中</li>
+    <li>每次存入陣列中時會先檢查陣列中的資料有沒有重覆</li>
+    <li>完成選號後將陣列內容印出</li>
+</ul>
+
 <div class="tablewrap">
 <?php
-// 建立空的二維陣列
-$timesTable = [];
-
-// 用迴圈產生九九乘法表，並以「字串」形式存入陣列
-for ($i = 1; $i <= 9; $i++) {
-    for ($j = 1; $j <= 9; $j++) {
-        $timesTable[$i][$j] = "{$i} × {$j} = " . ($i * $j);
+$need=6;
+$mix=1;
+$max=38;
+$numbers=[];
+// 判斷陣列裡的數字有幾個
+while (count($numbers) < $need) {
+    // 產生數字
+    $randNum=rand($mix,$max);
+    // 檢查數字有無重覆
+    if (!in_array($randNum, $numbers, true)) {
+        // 數字沒在陣列裡，再將它放入陣列中
+        $numbers[]=$randNum;
     }
 }
-?>
 
-<!--用迴圈印出陣列內容-->
-<table>
-<?php
-foreach ($timesTable as $row) {
-    echo "<tr>";
-    foreach ($row as $cell) {
-        echo "<td>{$cell}</td>";
+// 數字排序
+sort($numbers);
+
+// 印出數字
+echo '威力彩號碼，您的選號是：';
+foreach ($numbers as $num) {
+        echo $num . ", ";
     }
-    echo "</tr>";
-}
 ?>
 </table>
 </div>
