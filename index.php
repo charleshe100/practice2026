@@ -2,47 +2,41 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>威力彩電腦選號沒有重覆號碼(利用while迴圈)</title>    
+    <title>陣列</title>    
 </head>
 <body>
 
 <h1>陣列</h1>
-<h2>威力彩電腦選號沒有重覆號碼(利用while迴圈)</h2>
+<h2>找出五百年內的閏年(陣列儲存，迴圈印出)</h2>
 <ul>
-    <li>使用亂數函式rand($a,$b)來產生號碼</li>
-    <li>將產生的號碼順序存入陣列中</li>
-    <li>每次存入陣列中時會先檢查陣列中的資料有沒有重覆</li>
-    <li>完成選號後將陣列內容印出</li>
+    <li>依照閏年公式找出五百年內的閏年</li>
+    <li>使用陣列來儲存閏年</li>
+    <li>使用迴圈來印出閏年</li>
 </ul>
 
-<div class="tablewrap">
 <?php
-$need=6;
-$mix=1;
-$max=38;
-$numbers=[];
-// 判斷陣列裡的數字有幾個
-while (count($numbers) < $need) {
-    // 產生數字
-    $randNum=rand($mix,$max);
-    // 檢查數字有無重覆
-    if (!in_array($randNum, $numbers, true)) {
-        // 數字沒在陣列裡，再將它放入陣列中
-        $numbers[]=$randNum;
+// 宣告陣列
+$leapYears=[];
+// for跑500年
+for ($year=2000; $year < 2500; $year++) {
+    // 判斷是否為閏年
+    if (($year%4==0 && $year%100!= 0) || $year%400==0) {
+        // 存進陣列
+        $leapYears[]=$year;
     }
 }
 
-// 數字排序
-sort($numbers);
-
-// 印出數字
-echo '威力彩號碼，您的選號是：';
-foreach ($numbers as $num) {
-        echo $num . ", ";
+// 用迴圈印出陣列
+echo '西元2000年起，500年內的閏年有：<br>';
+foreach ($leapYears as $key => $leapYear) {
+    echo $leapYear.", ";
+    if(($key+1)%10==0){
+        echo "<br>";
     }
+}
 ?>
-</table>
-</div>
+
+
 
 </body>
 </html>
