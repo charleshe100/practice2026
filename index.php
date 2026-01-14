@@ -7,46 +7,35 @@
 <body>
 
 <h1>陣列</h1>
-<h2>已知西元1024年為甲子年，請設計一支程式，可以接受任一西元年份，輸出對應的天干地支的年別。(利用迴圈)</h2>
+<h2>請設計一支程式，在不產生新陣列的狀況下，將一個陣列的元素順序反轉(利用迴圈)</h2>
 <ul>
-    <li>天干：甲乙丙丁戊己庚辛壬癸</li>
-    <li>地支：子丑寅卯辰巳午未申酉戌亥</li>
-    <li>天干地支配對：甲子、乙丑、丙寅….甲戌、乙亥、丙子….</li>
+    <li>例：$a=[2,4,6,1,8] 反轉後 $a=[8,1,6,4,2]</li>
 </ul>
 
 
 <?php
-$sky=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
-$land=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+$a = [2, 4, 6, 1, 8];
+echo '$a = ';
+echo implode(' ', $a);
+echo "<br>";
+// 取得陣列長度
+$length = count($a);
+// 只跑陣列長度的一半
+for ($i = 0; $i < floor($length / 2); $i++) {
+    // 對稱位置
+    $oppositeIndex = $length - 1 - $i;
 
-$year=2026;
-
-$difference=$year-1024;
-
-// $skyIndex=(($difference%10)+10)%10;
-// $landIndex=(($difference%12)+12)%12;
-
-$skyIndex = 0; // 甲
-$landIndex = 0; // 子
-
-// 用迴圈「一年一年往前推」
-for ($i=1024+1; $i<= $year; $i++) {
-
-    // 天干往後（10 一循環）
-    $skyIndex++;
-    if ($skyIndex == 10) {
-        $skyIndex = 0;
-    }
-
-    // 地支往後（12 一循環）
-    $landIndex++;
-    if ($landIndex == 12) {
-        $landIndex = 0;
-    }
+    // 交換元素（使用暫存變數）
+    $temp = $a[$i];
+    $a[$i] = $a[$oppositeIndex];
+    $a[$oppositeIndex] = $temp;
 }
-
-echo "西元 {$year} 年為：";
-echo $sky[$skyIndex] . $land[$landIndex] . " 年";
+// 輸出結果
+// print_r($a);
+echo '反轉後的結果：';
+foreach ($a as $value) {
+    echo $value . ' ';
+}
 ?>
 </body>
 </html>
