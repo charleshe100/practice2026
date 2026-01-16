@@ -6,22 +6,22 @@
 </head>
 <body>
 
-<h1>字串取代</h1>
-<h2>將”aaddw1123”改成”*********”</h2>
-<?php
-$a='aaddw1123';
-echo '原字串為：'. $a . "<br>";
-$b=str_repeat("*",strlen($a));
-echo "字串處理後，顯示為：" . $b;
-?>
-
-<h1>字串分割</h1>
-<h2>將”this,is,a,book”依”,”切割後成為陣列</h2>
+<h1>字串組合</h1>
+<h2>將上例陣列重新組合成“this is a book”</h2>
 <?php 
 $c="this,is,a,book";
 $array=explode(",", $c);
+$Reorganization = implode(" ", $array);
+echo $Reorganization;
+?>
 
-print_r($array);
+<h1>子字串取用</h1>
+<h2>將” The reason why a great man is great is that he resolves to be a great man”只取前十字成為” The reason…”</h2>
+<?php 
+$string = " The reason why a great man is great is that he resolves to be a great man";
+$result = substr($string, 0, 11) . "...";
+echo $result;
+
 ?>
 
 </body>
