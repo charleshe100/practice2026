@@ -2,26 +2,37 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>字串處理</title>    
+    <title>字串處理</title>
+    <style>
+        .highlight {
+            color: red;
+            font-size: 28px;
+            font-weight: bold;
+        }
+    </style>    
 </head>
 <body>
 
-<h1>字串組合</h1>
-<h2>將上例陣列重新組合成“this is a book”</h2>
+<h1>尋找字串與HTML、css整合應用</h1>
+<h2>
+    <ul>
+        <li>給定一個句子，將指定的關鍵字放大</li>
+        <li>“學會PHP網頁程式設計，薪水會加倍，工作會好找”</li>
+        <li>請將上句中的 “程式設計” 放大字型或變色.</li>
+    </ul>
+</h2>
 <?php 
-$c="this,is,a,book";
-$array=explode(",", $c);
-$Reorganization = implode(" ", $array);
-echo $Reorganization;
-?>
+$string="學會PHP網頁程式設計，薪水會加倍，工作會好找";
+echo "原本的句子是：".$string."<br>";
 
-<h1>子字串取用</h1>
-<h2>將” The reason why a great man is great is that he resolves to be a great man”只取前十字成為” The reason…”</h2>
-<?php 
-$string = " The reason why a great man is great is that he resolves to be a great man";
-$result = substr($string, 0, 11) . "...";
-echo $result;
+$keyword = "程式設計";
 
+$result = str_replace(
+    $keyword,
+    "<span class='highlight'>{$keyword}</span>",
+    $string);
+
+echo "變更後的句子是：".$result."<br>";
 ?>
 
 </body>
