@@ -6,31 +6,42 @@
 </head>
 <body>
 
-<h1>計算距離自己下一次生日還有幾天</h1>
+<h1>利用date()函式的格式化參數，完成日期格式呈現</h1>
+<ul>
+    <li>2021/10/05</li>
+    <li>10月5日 Tuesday</li>
+    <li>2021-10-5 12:9:5</li>
+    <li>2021-10-5 12:09:05</li>
+    <li>今天是西元2021年10月5日 上班日(或假日)</li>
+</ul>
 
 <?php
-// 設定生日（月、日）
-$birthMonth = 1;
-$birthDay   = 16;
-echo "我的生日是" . $birthMonth . '月' . $birthDay . '日';
+// 指定時間（用 strtotime 固定時間）
+$time = strtotime("2021-10-05 12:09:05");
+
+// 2021/10/05
+echo date("Y/m/d", $time);
 echo "<br>";
-// 今天日期
-$today = strtotime(date('Y-m-d'));
 
-// 今年生日時間點
-$birthdayThisYear = strtotime(date('Y') . '-' . $birthMonth . '-' . $birthDay);
+// 10月5日 Tuesday
+echo date("n月j日 l", $time);
+echo "<br>";
 
-// 如果今年生日已過 → 用明年
-if ($birthdayThisYear < $today) {
-    $birthdayThisYear = strtotime((date('Y') + 1) . '-' . $birthMonth . '-' . $birthDay);
+// 2021-10-5 12:09:05
+echo date("Y-n-j G:i:s", $time);
+echo "<br>";
+
+// 今天是西元2021年10月5日 上班日(或假日)
+$dayOfWeek = date("N", $time); // 1(一) ~ 7(日)
+
+if ($dayOfWeek >= 6) {
+    $workDay = "假日";
+} else {
+    $workDay = "上班日";
 }
 
-// 計算相隔天數
-$days = ($birthdayThisYear - $today) / 86400;
-
-echo '距離下一次生日還有 ' . floor($days) . ' 天';
+echo "今天是西元" . date("Y年n月j日", $time) . " " . $workDay;
 ?>
-
 
 </body>
 </html>
