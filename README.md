@@ -25,3 +25,4 @@
 * day024: 登入檢查
 * day025: 設計一個網頁版萬年曆
 * day026: 會員登入COOKIE
+* day027: 會員登入SESSION

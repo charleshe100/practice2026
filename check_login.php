@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>登入檢查</title>
-</head>
-<body>
 <?php
-// 正確帳密
+session_start();
+
+// 正確帳密（示範用）
 $correctAccount  = "admin";
 $correctPassword = "1234";
 
@@ -18,8 +12,8 @@ $password = $_POST['password'];
 // 檢查帳密
 if ($account == $correctAccount && $password == $correctPassword) {
 
-    // 設定 cookie（不給過期時間 → 關瀏覽器就消失）
-    setcookie("login_user", $account, 0, "/");
+    // 設定 session
+    $_SESSION['login_user'] = $account;
 
     // 導向登入後頁面
     header("Location: index.php");
@@ -30,6 +24,3 @@ if ($account == $correctAccount && $password == $correctPassword) {
     echo "<a href='login.php'>回登入頁</a>";
 }
 ?>
-
-</body>
-</html>

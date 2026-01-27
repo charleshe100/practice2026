@@ -6,7 +6,7 @@
     <title>會員登入</title>
 </head>
 <body>
-<h1>會員登入COOKIE</h1>
+<h1>會員登入SESSION</h1>
 <ul>
     <li>一般會員登入畫面設計</li>
     <li>登入檢查(帳密是否正確)</li>

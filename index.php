@@ -1,6 +1,8 @@
 <?php
+session_start();
+
 // 檢查是否已登入
-if (!isset($_COOKIE['login_user'])) {
+if (!isset($_SESSION['login_user'])) {
     header("Location: login.php");
     exit;
 }
@@ -14,7 +16,7 @@ if (!isset($_COOKIE['login_user'])) {
 <body>
 <h2>會員首頁</h2>
 
-<p>歡迎你，<?php echo $_COOKIE['login_user']; ?>！</p>
+<p>歡迎你，<?php echo $_SESSION['login_user']; ?>！</p>
 
 <ul>
     <li><a href="logout.php">登出</a></li>
