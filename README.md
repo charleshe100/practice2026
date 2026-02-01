@@ -26,3 +26,4 @@
 * day025: 設計一個網頁版萬年曆
 * day026: 會員登入COOKIE
 * day027: 會員登入SESSION
+* day028: JS console.log & typeof
