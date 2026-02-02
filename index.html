@@ -5,14 +5,27 @@
     <title>JavaScript 練習</title>    
 </head>
 <body>
-<h1>console.log & typeof</h1>
+<h1>JS string 轉成 number</h1>
 <script>
-    x = 'hello';
-    y = 123;
+    // 加上引號，會是 string
+    let x = "12";
+    let y = "50";
     console.log('x', x);
     console.log('x_typeof', typeof(x));
     console.log('y', y);
     console.log('y_typeof', typeof(y));
+    let sum = x+y;
+    console.log('sum', sum);
+    console.log('sum_typeof', typeof(sum));
+    let xValue = Number (x);
+    let yValue = Number (y);
+    console.log('xValue', xValue);
+    console.log('xValue_typeof', typeof(xValue));
+    console.log('yValue', yValue);
+    console.log('yValue_typeof', typeof(yValue));
+    let sum2 = xValue+yValue;
+    console.log('sum2', sum2);
+    console.log('sum2_typeof', typeof(sum2));
 </script>
 
 </body>

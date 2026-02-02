@@ -27,3 +27,4 @@
 * day026: 會員登入COOKIE
 * day027: 會員登入SESSION
 * day028: JS console.log & typeof
+* day029: JS string 轉成 number
