@@ -31,3 +31,4 @@
 * day030: JS 建立與設定節點
 * day031: JS 輸入數字，加減乘除
 * day032: JS 選擇心情
+* day032: JS function
