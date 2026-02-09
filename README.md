@@ -33,3 +33,4 @@
 * day032: JS 選擇心情
 * day033: JS function
 * day034: JS arrow function
+* day035: JS 字串
