@@ -34,3 +34,4 @@
 * day033: JS function
 * day034: JS arrow function
 * day035: JS 字串
+* day036: JS 數字轉字串，數字保留小數位 四捨五入
